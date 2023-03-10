@@ -32,9 +32,9 @@ public class ExamenController {
         return naveRepository.findAll();
     }
 
-    public void createNave(Nave nave) {
+    public Nave createNave(Nave nave) {
         System.out.println("\t -> Insertando: " + nave);
-        naveRepository.save(nave);
+        return naveRepository.save(nave);
     }
 
     public Nave getNaveById(UUID id) {
@@ -60,9 +60,9 @@ public class ExamenController {
         return pilotoRepository.findAll();
     }
 
-    public void createPiloto(Piloto piloto) {
+    public Piloto createPiloto(Piloto piloto) {
         System.out.println("\t -> Insertando: " + piloto);
-        pilotoRepository.save(piloto);
+        return pilotoRepository.save(piloto);
     }
 
     public Piloto getPilotoById(UUID id) {
@@ -87,13 +87,15 @@ public class ExamenController {
         return batallaRepository.findAll();
     }
 
-    public void createBatalla(Batalla batalla) {
+    public Batalla createBatalla(Batalla batalla) {
         System.out.println("\t -> Insertando: " + batalla);
         int capitan = pilotoRepository.findAll().stream().filter(it -> it.getBatalla() == batalla).filter(Piloto::isCapitan).toList().size();
 
         if (capitan >= 2) {
             System.err.println("Error en la creacion de " + batalla + " | Exceso de capitanes " + capitan);
         } else batallaRepository.save(batalla);
+
+        return batalla;
     }
 
     public Batalla getBatallaById(UUID id) {

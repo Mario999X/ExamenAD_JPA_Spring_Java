@@ -2,19 +2,16 @@ package mario.resa;
 
 import mario.resa.controllers.ExamenController;
 import mario.resa.db.Data;
+import mario.resa.enums.TipoNave;
 import mario.resa.models.Batalla;
 import mario.resa.models.Nave;
-import mario.resa.enums.TipoNave;
 import mario.resa.models.Piloto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.time.LocalDate;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @SpringBootApplication
 public class ExamenAdJpaSpringJavaApplication implements CommandLineRunner {
